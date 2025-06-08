@@ -1,9 +1,5 @@
 # Workvivo SIEM Fetching Tool - Nodejs Version
 
-Dec 19, 2024  
-yosuke.sawamura@zoom.us  
-Workvivo fetching SIEM demo - Python version
-
 The SIEM API lets you query security related events associated with your users and Organisation.
 Such as login, logout, switch user.
 
