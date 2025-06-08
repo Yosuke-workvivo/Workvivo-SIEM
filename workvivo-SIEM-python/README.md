@@ -21,11 +21,11 @@ pip install -r requirements.txt
 cp env.template .env
 ```
 
-3. Edit the `.env` file and fill in your actual Workvivo credentials:
+3. Edit the `.env` file and fill in your actual Workvivo credentials and your timezone:
 ```
 WORKVIVOID=your_actual_workvivo_id
 WORKVIVOTOKEN=your_actual_workvivo_token
-TIMEZONE=UTC
+TIMEZONE='Asia/Tokyo'
 ```
 
 ## Usage
