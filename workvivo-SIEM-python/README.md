@@ -3,11 +3,8 @@
 A Python tool for fetching Security Information and Event Management (SIEM) data from the Workvivo API and exporting it to CSV format with local timestamp tracking.
 
 For official description please visit Workvivo Developers:
-https://developer.workvivo.com/#0836b42d-0d64-4c5e-a1fb-0d00e06026a4
 
-**Author:** yosuke.sawamura@zoom.us  
-**Date:** December 19, 2024  
-**Version:** Python 3.8+
+https://developer.workvivo.com/#0836b42d-0d64-4c5e-a1fb-0d00e06026a4
 
 ## Features
 
@@ -186,4 +183,7 @@ This tool is provided as-is for demonstration purposes. Please ensure you have p
 For issues related to:
 - **Workvivo API:** Contact your Workvivo administrator
 - **Script functionality:** Check the troubleshooting section above
-- **Python environment:** Ensure Python 3.8+ and pip are properly installed 
+- **Python environment:** Ensure Python 3.8+ and pip are properly installed
+
+**Author:** yosuke.sawamura@zoom.us  
+**Date:** December 19, 2024  
