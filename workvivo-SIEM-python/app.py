@@ -12,9 +12,12 @@ Note:
    pip install -r requirements.txt
 2. Two arguments will be required to define the starting and ending data.
    2024-09-01 for year 2024, 09 (September), 01 first day
+3. Optional third argument to specify interval in minutes (defaults to 60)
 
 Example:
-  python app.py 2009-09-01 2024-09-02
+  python app.py 2024-09-01 2024-09-02 (uses default 60-minute intervals)
+  python app.py 2024-09-01 2024-09-02 10 (uses 10-minute intervals)
+  python app.py 2024-09-01 2024-09-02 30 (uses 30-minute intervals)
 """
 
 import os
@@ -59,8 +62,8 @@ def is_valid_date(date_string):
         return False
 
 
-def get_epoch_dates(arg_start_date, arg_end_date):
-    """Calculate epoch times for hourly intervals and fetch data"""
+def get_epoch_dates(arg_start_date, arg_end_date, interval_minutes=60):
+    """Calculate epoch times for specified interval and fetch data"""
     # Get current time
     now = datetime.now()
     end_date_obj = datetime.strptime(arg_end_date, '%Y-%m-%d')
@@ -89,15 +92,16 @@ def get_epoch_dates(arg_start_date, arg_end_date):
     total_difference = end_datetime - start_datetime
     total_difference_ms = int(total_difference.total_seconds() * 1000)
     
-    # Calculate total number of 60-minute intervals
-    total_intervals = total_difference_ms // (60 * 60 * 1000)
+    # Calculate total number of intervals based on specified minutes
+    total_intervals = total_difference_ms // (interval_minutes * 60 * 1000)
     
     print(f"Number of API requests: {total_intervals}")
+    print(f"Using {interval_minutes}-minute intervals")
     
-    # Iterate over each 60-minute interval
+    # Iterate over each interval
     for i in range(total_intervals + 1):
-        interval_start = start_datetime + timedelta(hours=i)
-        interval_end = start_datetime + timedelta(hours=i + 1)
+        interval_start = start_datetime + timedelta(minutes=i * interval_minutes)
+        interval_end = start_datetime + timedelta(minutes=(i + 1) * interval_minutes)
         
         epoch_start = int(interval_start.timestamp())
         epoch_end = int(interval_end.timestamp())
@@ -188,22 +192,26 @@ def main():
     """Main function to handle command line arguments and orchestrate the process"""
     parser = argparse.ArgumentParser(
         description='Workvivo SIEM data fetching tool',
-        epilog='Example: python app.py 2024-09-01 2024-09-02'
+        epilog='Example: python app.py 2024-09-01 2024-09-02 [interval_minutes]'
     )
     parser.add_argument('start_date', help='Start date in YYYY-MM-DD format')
     parser.add_argument('end_date', help='End date in YYYY-MM-DD format')
+    parser.add_argument('interval_minutes', nargs='?', type=int, default=60,
+                      help='Interval in minutes (default: 60)')
     
     if len(sys.argv) == 1:
         print('Please provide arguments to define the starting and ending data.')
         print('argument values: 2024-09-01 for year 2024, 09 (September), 01 first day')
         print('example: running "python app.py 2024-09-01 2024-09-02" will seek between Sep 1 to Sep 2')
+        print('optional: add interval in minutes as third argument (e.g., "python app.py 2024-09-01 2024-09-02 30")')
         sys.exit(1)
     
     args = parser.parse_args()
     start_date = args.start_date
     end_date = args.end_date
+    interval_minutes = args.interval_minutes
     
-    print(f'Arguments: {start_date}')
+    print(f'Arguments: {start_date}, {end_date}, interval: {interval_minutes} minutes')
     
     if is_valid_date(start_date) and is_valid_date(end_date):
         print('provided date format is correct.')
@@ -213,7 +221,7 @@ def main():
             print('Error: WORKVIVOID and WORKVIVOTOKEN environment variables must be set in .env file')
             sys.exit(1)
         
-        get_epoch_dates(start_date, end_date)
+        get_epoch_dates(start_date, end_date, interval_minutes)
         
     else:
         print('provided date format is incorrect.')
