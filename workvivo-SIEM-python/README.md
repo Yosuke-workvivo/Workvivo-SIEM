@@ -21,7 +21,7 @@ https://developer.workvivo.com/#0836b42d-0d64-4c5e-a1fb-0d00e06026a4
 - pip (Python package installer)
 - Valid Workvivo API credentials<br>
   API Authentication - Bearer Token (guide includes requirements to use API<br>
-https://support.workvivo.com/hc/en-gb/articles/24560593493661-API-Authentication-Bearer-Token)
+https://support.workvivo.com/hc/en-gb/articles/24560593493661-API-Authentication-Bearer-Token
 
 ## Quick Start
 
