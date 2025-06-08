@@ -4,6 +4,12 @@ Dec 19, 2024
 yosuke.sawamura@zoom.us  
 Workvivo fetching SIEM demo - Python version
 
+The SIEM API lets you query security related events associated with your users and Organisation.
+Such as login, logout, switch user.
+
+For official description please visit Workvivo Developers:
+https://developer.workvivo.com/#0836b42d-0d64-4c5e-a1fb-0d00e06026a4
+
 ## Requirements
 
 - Python 3.8+
