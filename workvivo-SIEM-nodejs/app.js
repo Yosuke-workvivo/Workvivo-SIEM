@@ -29,7 +29,7 @@ const { DateTime } = require('luxon');
 const WORKVIVOID = process.env.WORKVIVOID;
 const WORKVIVOTOKEN = process.env.WORKVIVOTOKEN;
 const baseUrl = "https://api.workvivo.io/v1/siem/";
-const logdir = `${__dirname}/log/siem_data.log`
+const logdir = `${__dirname}/log/siem_data.csv`
 const TIMEZONE = process.env.TIMEZONE;
 
 // Get args, exit if none provided 
