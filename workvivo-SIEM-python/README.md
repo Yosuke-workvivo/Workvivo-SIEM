@@ -94,22 +94,21 @@ The output CSV file contains the following columns:
 
 | Column | Description | Example |
 |--------|-------------|---------|
-| `id` | Unique event ID | `29792693` |
-| `created_at_timestamp` | Unix timestamp (UTC) | `1749336563` |
+| `local_timestamp` | **Local datetime** | `2025-06-08 09:07:21 JST` |
 | `created_at` | UTC datetime string | `2025-06-07T22:49:23Z` |
-| `created_at_local` | **Local datetime** | `6/8/2025, 7:49:23 AM` |
-| `workvivo_id` | Workvivo user ID | `1637453` |
-| `user_email` | User email address | `user02@playground.zapto.org` |
-| `event` | Event type | `switch user reverted` |
+| `created_at_timestamp` | Unix timestamp (UTC) | `1749336563` |
+| `event` | Event type | `login, logout, switch user...` |
+| `id` | Unique event ID | `29792693` |
 | `ip_address` | Source IP address | `104.30.132.41` |
+| `note` | Additional event details | `switch user from...` |
 | `user_agent` | Browser user agent | `Mozilla/5.0 (Macintosh...)` |
-| `note` | Additional event details | `login, logout, switch user...` |
-
+| `user_email` | User email address | `user02@playground.zapto.org` |
+| `workvivo_id` | Workvivo user ID | `1637453` |
 
 ### Example CSV Output
 ```csv
-id,created_at_timestamp,created_at,created_at_local,workvivo_id,user_email,event,ip_address,user_agent,note
-29792693,1749336563,2025-06-07T22:49:23Z,"6/8/2025, 7:49:23 AM",1637453,user02@playground.zapto.org,switch user reverted,104.30.132.41,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36","switch user reverted from user02@playground.zapto.org to user administrator@playground.zapto.org"
+local_timestamp,created_at,created_at_timestamp,event,id,ip_address,note,user_agent,user_email,workvivo_id
+2025-06-08 09:07:21 JST,2025-06-07T22:46:04Z,1749336364,switch user,29792647,104.30.132.41,switch user from user02@playground.zapto.org to user administrator@playground.zapto.org,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",user02@playground.zapto.org,1637453
 ```
 
 ### Console Output
