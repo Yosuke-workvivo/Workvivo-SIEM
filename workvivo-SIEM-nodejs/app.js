@@ -11,7 +11,7 @@
 // 1. Make sure app.js (this) and package.json is present in the same directory.
 //  $ npm install
 // 2. Two arguments will be required to define the starting and ending data.
-// 2024-12-01 for year 2024, 09 (September), 01 first day
+// 2024-09-01 for year 2024, 09 (September), 01 first day
 //
 // Now you can run the script in three ways:
 //  $ node app.js 2024-12-01 2024-12-02 (uses default 60-minute intervals)
