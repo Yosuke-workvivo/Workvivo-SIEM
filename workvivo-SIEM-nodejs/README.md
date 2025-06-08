@@ -131,7 +131,7 @@ The output CSV file contains the following columns:
 | `workvivo_id` | Workvivo user ID | `1637453` |
 | `user_email` | User email address | `user02@playground.zapto.org` |
 | `event` | Event type | `switch user reverted` |
-| `ip_address` | Source IP address | `104.30.132.41` |
+| `ip_address` | Source IP address | `10.30.12.41` |
 | `user_agent` | Browser user agent | `Mozilla/5.0 (Macintosh...)` |
 | `note` | Additional event details | `login, logout, switch user...` |
 
@@ -139,7 +139,7 @@ The output CSV file contains the following columns:
 
 ```csv
 id,created_at_timestamp,created_at,created_at_local,workvivo_id,user_email,event,ip_address,user_agent,note
-29792693,1749336563,2025-06-07T22:49:23Z,"6/8/2025, 7:49:23 AM",1637453,user02@playground.zapto.org,switch user reverted,104.30.132.41,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36","switch user reverted from user02@playground.zapto.org to user administrator@playground.zapto.org"
+29792693,1749336563,2025-06-07T22:49:23Z,"6/8/2025, 7:49:23 AM",1637453,user02@playground.zapto.org,switch user reverted,10.30.12.41,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36","switch user reverted from user02@playground.zapto.org to user administrator@playground.zapto.org"
 ```
 
 ## How It Works
