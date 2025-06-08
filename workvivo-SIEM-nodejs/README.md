@@ -26,7 +26,7 @@ It automatically converts UTC timestamps to local time and handles proper CSV fo
 
 - **Node.js**: v20.17.0 or higher
 - **npm**: 11.0.0 or higher
-- **Valid Workvivo API credentials**:<br>
+- **Valid Workvivo API credentials (your_workvivo_id & your_bearer_token)**:<br>
   API Authentication - Bearer Token (guide includes requirements to use API<br>
 https://support.workvivo.com/hc/en-gb/articles/24560593493661-API-Authentication-Bearer-Token
 
@@ -43,7 +43,7 @@ The application uses the following npm packages:
 1. **Clone or download the repository**
    ```bash
    git clone <repository-url>
-   cd workvivo-fetchSIEM
+   cd workvivo-SIEM-nodejs
    ```
 
 2. **Install dependencies**
