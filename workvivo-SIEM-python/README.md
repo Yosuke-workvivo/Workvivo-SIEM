@@ -1,4 +1,4 @@
-# Workvivo SIEM Data Fetching Tool - Python Version
+# Workvivo SIEM Fetching Tool - Python Version
 
 Dec 19, 2024  
 yosuke.sawamura@zoom.us  
