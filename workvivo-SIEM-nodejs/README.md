@@ -133,7 +133,7 @@ The output CSV file contains the following columns:
 | `event` | Event type | `switch user reverted` |
 | `ip_address` | Source IP address | `104.30.132.41` |
 | `user_agent` | Browser user agent | `Mozilla/5.0 (Macintosh...)` |
-| `note` | Additional event details | `switch user reverted from...` |
+| `note` | Additional event details | `login, logout, switch user...` |
 
 ### Sample Output
 
