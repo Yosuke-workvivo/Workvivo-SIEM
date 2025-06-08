@@ -219,5 +219,3 @@ For issues related to:
 
 **Created by**: yosuke.sawamura@zoom.us  
 **Date**: December 19, 2024  
-**Node.js Version**: v20.17.0  
-**npm Version**: 11.0.0 
