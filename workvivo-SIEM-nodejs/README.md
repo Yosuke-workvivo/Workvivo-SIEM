@@ -206,7 +206,7 @@ Be mindful of any API rate limits imposed by Workvivo.
 
 ## License
 
-This project is for demonstration purposes. Check with Workvivo for API usage terms and conditions.
+This tool is provided as-is for demonstration purposes. Please ensure you have proper authorization to access Workvivo SIEM data before use.
 
 ## Support
 
