@@ -26,6 +26,9 @@ It automatically converts UTC timestamps to local time and handles proper CSV fo
 
 - **Node.js**: v20.17.0 or higher
 - **npm**: 11.0.0 or higher
+- Valid Workvivo API credentials<br>
+  API Authentication - Bearer Token (guide includes requirements to use API<br>
+https://support.workvivo.com/hc/en-gb/articles/24560593493661-API-Authentication-Bearer-Token)
 
 ## Dependencies
 
