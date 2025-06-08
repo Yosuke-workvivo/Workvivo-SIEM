@@ -89,9 +89,8 @@ This fetches SIEM data from September 1, 2024 to September 2, 2024.
 
 ### Example CSV Output
 ```csv
-local_timestamp,event_id,user_id,action,timestamp,ip_address
-2024-09-01 09:00:00 JST,12345,user123,login,1725163200,192.168.1.1
-2024-09-01 09:00:00 JST,12346,user456,logout,1725163260,192.168.1.2
+id,created_at_timestamp,created_at,created_at_local,workvivo_id,user_email,event,ip_address,user_agent,note
+29792693,1749336563,2025-06-07T22:49:23Z,"6/8/2025, 7:49:23 AM",1637453,user02@playground.zapto.org,switch user reverted,104.30.132.41,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36","switch user reverted from user02@playground.zapto.org to user administrator@playground.zapto.org"
 ```
 
 ### Console Output
