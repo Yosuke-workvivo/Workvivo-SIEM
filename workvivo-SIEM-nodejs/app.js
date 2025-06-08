@@ -13,8 +13,10 @@
 // 2. Two arguments will be required to define the starting and ending data.
 // 2024-12-01 for year 2024, 09 (September), 01 first day
 //
-// Example
-//  % node app.js 2024-09-01 2024-09-02
+// Now you can run the script in three ways:
+//  $ node app.js 2024-12-01 2024-12-02 (uses default 60-minute intervals)
+//  $ node app.js 2024-12-01 2024-12-02 10 (uses 10-minute intervals)
+//  $ node app.js 2024-12-01 2024-12-02 30 (uses 30-minute intervals)
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -29,13 +31,14 @@ const { DateTime } = require('luxon');
 const WORKVIVOID = process.env.WORKVIVOID;
 const WORKVIVOTOKEN = process.env.WORKVIVOTOKEN;
 const baseUrl = "https://api.workvivo.io/v1/siem/";
-const logdir = `${__dirname}/log/siem_data.csv`
+const logdir = `${__dirname}/log/siem_data.log`
 const TIMEZONE = process.env.TIMEZONE;
 
 // Get args, exit if none provided 
 const args = process.argv.slice(2);
 const startarg = args[0];
 const endarg = args[1];
+const intervalMinutes = args[2] ? parseInt(args[2]) : 60; // Default to 60 minutes if not provided
 
 // CSV header
 const csvHeader = "id,created_at_timestamp,created_at,created_at_local,workvivo_id,user_email,event,ip_address,user_agent,note\n";
@@ -84,15 +87,15 @@ async function getEpocDates(argStartDate, argEndDate){
   // Calculate the difference in milliseconds between the start datetime and now
   const totalDifferenceInMilliseconds = endDatetime - startDatetime.toMillis();
   
-  // Calculate the total number of 60-minute intervals
-  const totalIntervals = Math.floor(totalDifferenceInMilliseconds / (60 * 60 * 1000));
-  // Iterate over each 60-minute interval and calculate the start and end epoch times
+  // Calculate the total number of intervals based on the provided interval minutes
+  const totalIntervals = Math.floor(totalDifferenceInMilliseconds / (intervalMinutes * 60 * 1000));
+  // Iterate over each interval and calculate the start and end epoch times
 
-  console.log("Number of API requests: " + totalIntervals);
+  console.log(`Number of API requests: ${totalIntervals} (using ${intervalMinutes} minute intervals)`);
 
   for (let i = 0; i <= totalIntervals; i++) {
-    const intervalStart = startDatetime.plus({ minutes: i * 60 }).toMillis();
-    const intervalEnd = startDatetime.plus({ minutes: (i + 1) * 60 }).toMillis();
+    const intervalStart = startDatetime.plus({ minutes: i * intervalMinutes }).toMillis();
+    const intervalEnd = startDatetime.plus({ minutes: (i + 1) * intervalMinutes }).toMillis();
     const epocStart = Math.floor(intervalStart / 1000);
     const epocEnd = Math.floor(intervalEnd / 1000);
     console.log(`Interval ${i + 1}:`);
@@ -193,20 +196,24 @@ async function writedata(newdata){
 };
 
 if (args.length === 0) {
-  console.log('Please provide an arguments to define the starting and ending data.');
+  console.log('Please provide arguments to define the starting and ending data, and optionally the interval in minutes.');
   console.log('argument values: 2024-12-01 for year 2024, 12 (December), 01 first day');
-  console.log('example: running "% node app.js 2024-12-01 2024-12-02" will seek between Dec 1 to Dec 2');
+  console.log('example: running "% node app.js 2024-12-01 2024-12-02 10" will seek between Dec 1 to Dec 2 with 10-minute intervals');
   process.exit(1); // Exit with a non-zero exit code to indicate an error
 } else {
   // Process the arguments here
   console.log('Arguments:', startarg);
   if (isValidDate(startarg) && isValidDate(endarg)) {
     console.log('provided date format is correct.');
+    if (intervalMinutes && intervalMinutes > 0) {
+      console.log(`Using ${intervalMinutes} minute intervals`);
+    } else {
+      console.log('Using default 60 minute intervals');
+    }
     getEpocDates(startarg, endarg);
   } else {
     console.log('provided date format is incorrect.');
     console.log('example: 2024-12-01 for year 2024, 12 (December), 01 first day');
-    console.log('example: running "% node app.js 2024-12-01 2024-12-02" will seek between Dec 1 to Dec 2');
+    console.log('example: running "% node app.js 2024-12-01 2024-12-02 10" will seek between Dec 1 to Dec 2 with 10-minute intervals');
   }
 }
-
