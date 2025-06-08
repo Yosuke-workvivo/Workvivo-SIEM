@@ -99,7 +99,7 @@ The output CSV file contains the following columns:
 | `created_at_timestamp` | Unix timestamp (UTC) | `1749336563` |
 | `event` | Event type | `login, logout, switch user...` |
 | `id` | Unique event ID | `29792693` |
-| `ip_address` | Source IP address | `104.30.132.41` |
+| `ip_address` | Source IP address | `10.30.12.41` |
 | `note` | Additional event details | `switch user from...` |
 | `user_agent` | Browser user agent | `Mozilla/5.0 (Macintosh...)` |
 | `user_email` | User email address | `user02@playground.zapto.org` |
@@ -108,7 +108,7 @@ The output CSV file contains the following columns:
 ### Example CSV Output
 ```csv
 local_timestamp,created_at,created_at_timestamp,event,id,ip_address,note,user_agent,user_email,workvivo_id
-2025-06-08 09:07:21 JST,2025-06-07T22:46:04Z,1749336364,switch user,29792647,104.30.132.41,switch user from user02@playground.zapto.org to user administrator@playground.zapto.org,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",user02@playground.zapto.org,1637453
+2025-06-08 09:07:21 JST,2025-06-07T22:46:04Z,1749336364,switch user,29792647,10.30.12.41,switch user from user02@playground.zapto.org to user administrator@playground.zapto.org,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",user02@playground.zapto.org,1637453
 ```
 
 ### Console Output
