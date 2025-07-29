@@ -14,6 +14,7 @@ It automatically converts UTC timestamps to local time and handles proper CSV fo
 
 ## Features
 
+- ✅ Audit goes back 12 months (past 365 days)
 - ✅ Fetches SIEM data from Workvivo API in hourly intervals
 - ✅ Outputs data in CSV format with proper field escaping
 - ✅ Adds local time column for easier analysis
